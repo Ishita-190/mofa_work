@@ -2,6 +2,7 @@
 //!
 //! This module provides native Python extension bindings.
 
+use pyo3::exceptions::PyNotImplementedError;
 use pyo3::prelude::*;
 
 // Note: Python bindings are being refactored to use MoFAAgent directly.
@@ -17,9 +18,9 @@ pub fn mofa(m: &Bound<'_, PyModule>) -> PyResult<()> {
 /// Run a Python agent (placeholder)
 #[pyfunction]
 fn run_agents_py(py: Python<'_>) -> PyResult<Bound<'_, PyAny>> {
-    // Placeholder implementation - will be reimplemented with MoFAAgent support
     pyo3_async_runtimes::tokio::future_into_py(py, async move {
-        // TODO: Implement proper Python agent wrapper
-        Ok(())
+        Err::<(), _>(PyNotImplementedError::new_err(
+            "run_agents_py is not implemented yet, MoFAAgent wrapper integration is pending",
+        ))
     })
 }

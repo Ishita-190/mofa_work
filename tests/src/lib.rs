@@ -8,6 +8,7 @@ pub mod assertions;
 pub mod backend;
 pub mod bus;
 pub mod clock;
+pub mod mvp;
 pub mod report;
 pub mod tools;
 
